@@ -109,7 +109,9 @@ void Voo::finalizarVoo(){
 }
 
 void Voo::explodirVoo(){
-
+    if(estaVoando == false){
+        return;
+    }
 	for(int i = 0; i < tripulantes.size(); i++){
 		tripulantes[i]->morrer();
         tripulantes[i]->setEstaDisponivel(false);
@@ -117,6 +119,8 @@ void Voo::explodirVoo(){
 	}
 
 	explodiu = true;
+    estaVoando = false;
+    estaFinalizado = true;
 }
 
 	
